@@ -23,4 +23,22 @@ export declare class VideoUploadController {
         data: {};
         msg: any;
     }>;
+    getAllVideos(query: any): Promise<{
+        status: number;
+        data: import("./schema/videoUpload.schema").VideoUploadEntity[];
+        msg: string;
+    } | {
+        status: number;
+        data: {};
+        msg: any;
+    }>;
+    deleteVideo(body: any): Promise<{
+        status: number;
+        data: boolean;
+        msg: string;
+    } | {
+        status: number;
+        data: {};
+        msg: any;
+    }>;
 }

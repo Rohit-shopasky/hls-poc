@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import {
+  Body,
   Controller,
   Get,
-  Post,
-  UseInterceptors,
-  UploadedFile,
-  Req,
   Param,
+  Post,
+  Query,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { VideoProcessQueue } from '../queues/videoProcess.queue';
@@ -47,8 +48,45 @@ export class VideoUploadController {
   @Get('getVideoUrlByVideoId/:id')
   async getVideoUrlByVideoId(@Param('id') id) {
     try {
-      console.log('id===>', id);
       const videoRecord = await this.service.getVideoByVideoId(id);
+      return {
+        status: 200,
+        data: videoRecord,
+        msg: 'ok',
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        data: {},
+        msg: error.message || 'something went wrong!',
+      };
+    }
+  }
+
+  @Get('getAllVideos')
+  async getAllVideos(@Query() query) {
+    try {
+      const { skip, take } = query;
+      const videoRecord = await this.service.getAllVideos(skip, take);
+      return {
+        status: 200,
+        data: videoRecord,
+        msg: 'ok',
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        data: {},
+        msg: error.message || 'something went wrong!',
+      };
+    }
+  }
+
+  @Post('deleteVideo')
+  async deleteVideo(@Body() body) {
+    try {
+      const { id } = body;
+      const videoRecord = await this.service.deleteVideo(id);
       return {
         status: 200,
         data: videoRecord,

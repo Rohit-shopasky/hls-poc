@@ -7,4 +7,6 @@ export declare class VideoUploadService {
     uploadVideo(filePath: string): Promise<VideoUploadEntity>;
     updateVideoStatus(videoId: string, status: VideoUploadStatus): Promise<VideoUploadEntity>;
     getVideoByVideoId(videoId: string): Promise<VideoUploadEntity>;
+    getAllVideos(skip: number, take: number): Promise<VideoUploadEntity[]>;
+    deleteVideo(id: string): Promise<boolean>;
 }

@@ -33,4 +33,20 @@ export class VideoUploadService {
       throw error;
     }
   }
+
+  async getAllVideos(skip: number, take: number): Promise<VideoUploadEntity[]> {
+    try {
+      return await this.repository.getAllVideos(skip, take);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteVideo(id: string): Promise<boolean> {
+    try {
+      return await this.repository.deleteVideo(id);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

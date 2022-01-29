@@ -46,8 +46,43 @@ let VideoUploadController = class VideoUploadController {
     }
     async getVideoUrlByVideoId(id) {
         try {
-            console.log('id===>', id);
             const videoRecord = await this.service.getVideoByVideoId(id);
+            return {
+                status: 200,
+                data: videoRecord,
+                msg: 'ok',
+            };
+        }
+        catch (error) {
+            return {
+                status: 500,
+                data: {},
+                msg: error.message || 'something went wrong!',
+            };
+        }
+    }
+    async getAllVideos(query) {
+        try {
+            const { skip, take } = query;
+            const videoRecord = await this.service.getAllVideos(skip, take);
+            return {
+                status: 200,
+                data: videoRecord,
+                msg: 'ok',
+            };
+        }
+        catch (error) {
+            return {
+                status: 500,
+                data: {},
+                msg: error.message || 'something went wrong!',
+            };
+        }
+    }
+    async deleteVideo(body) {
+        try {
+            const { id } = body;
+            const videoRecord = await this.service.deleteVideo(id);
             return {
                 status: 200,
                 data: videoRecord,
@@ -78,6 +113,20 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], VideoUploadController.prototype, "getVideoUrlByVideoId", null);
+__decorate([
+    common_1.Get('getAllVideos'),
+    __param(0, common_1.Query()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], VideoUploadController.prototype, "getAllVideos", null);
+__decorate([
+    common_1.Post('deleteVideo'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], VideoUploadController.prototype, "deleteVideo", null);
 VideoUploadController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [videoProcess_queue_1.VideoProcessQueue,

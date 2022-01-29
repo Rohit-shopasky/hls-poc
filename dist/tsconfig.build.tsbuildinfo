@@ -3122,13 +3122,13 @@
         "affectsGlobalScope": false
       },
       "../src/videoupload/repository/videoupload.respository.ts": {
-        "version": "085f2ac011ff70b158d4f349329e9d40cff6120399972db1685d4b82bd83df3b",
-        "signature": "53d3eb7a59fa0873c4db11a3b921f4401e210fd8e3333465d5468ed001332df4",
+        "version": "0cc8764c748e92f6e2bea68e3f2c63e4dea20d4b3813ec7b51bb0d048257a276",
+        "signature": "5d464474a1aeb758fb41d276bdb757b1061b536899a93a39799991251c204dc2",
         "affectsGlobalScope": false
       },
       "../src/videoupload/videoupload.service.ts": {
-        "version": "68aa58353bb89648b9530b46d79762391fa20f5b8f509c731526e1cb34e0aa6e",
-        "signature": "991a60a726a024cca602f5c8115d9d89b8e4def0026ff42b7e59297cdfce20a7",
+        "version": "faeeedde0820507137215bc8a5996c9e413b3064995c8ef14560f4ab2cb8f4ff",
+        "signature": "369cdf1388f3d77b48e4673c267463ebd3069e177902fb566a2cf93f92d19806",
         "affectsGlobalScope": false
       },
       "../src/queues/videoprocess.queue.ts": {
@@ -3137,8 +3137,8 @@
         "affectsGlobalScope": false
       },
       "../src/videoupload/videoupload.controller.ts": {
-        "version": "d30036c6ddc89d51f24680c45098287f7decdb86a53589893f04ff23f22e1df1",
-        "signature": "149d179831b5b19f0e3a0125a742cf10c86e0443d4b5e039bd4bec38b110f7d6",
+        "version": "0159afcdf62e0897657d6fabf310dab1bb0c6ef42db95090272db5454ef469ad",
+        "signature": "a8178685c1fa71aa5f5caac7f6e85c7d509fbcc462eda30e2e80d7b9310b31c5",
         "affectsGlobalScope": false
       },
       "../src/videoupload/videoupload.module.ts": {

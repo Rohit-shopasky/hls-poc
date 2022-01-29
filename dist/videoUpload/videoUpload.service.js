@@ -40,6 +40,22 @@ let VideoUploadService = class VideoUploadService {
             throw error;
         }
     }
+    async getAllVideos(skip, take) {
+        try {
+            return await this.repository.getAllVideos(skip, take);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async deleteVideo(id) {
+        try {
+            return await this.repository.deleteVideo(id);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
 };
 VideoUploadService = __decorate([
     common_1.Injectable(),

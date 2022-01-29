@@ -64,6 +64,37 @@ let VideoUploadRepository = class VideoUploadRepository {
             throw error;
         }
     }
+    async getAllVideos(skip, take) {
+        try {
+            skip = typeof skip == 'undefined' ? 0 : skip;
+            take = typeof take == 'undefined' ? 50 : take;
+            const response = await this.model
+                .find({
+                is_deleted: false,
+            })
+                .skip(skip)
+                .limit(take);
+            return response;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    async deleteVideo(id) {
+        try {
+            const response = await this.model.update({
+                _id: id,
+            }, {
+                $set: {
+                    is_deleted: true,
+                },
+            });
+            return response.modifiedCount > 0 ? true : false;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
 };
 VideoUploadRepository = __decorate([
     __param(0, mongoose_1.InjectModel(videoUpload_schema_1.VideoUploadEntity.name)),
