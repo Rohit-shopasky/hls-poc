@@ -70,7 +70,8 @@ export class VideoUploadRepository {
           is_deleted: false,
         })
         .skip(skip)
-        .limit(take);
+        .limit(take)
+        .sort({ _id: -1 });
       return response;
     } catch (error) {
       throw error;
