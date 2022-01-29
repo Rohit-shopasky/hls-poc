@@ -73,7 +73,8 @@ let VideoUploadRepository = class VideoUploadRepository {
                 is_deleted: false,
             })
                 .skip(skip)
-                .limit(take);
+                .limit(take)
+                .sort({ created_at: -1 });
             return response;
         }
         catch (error) {

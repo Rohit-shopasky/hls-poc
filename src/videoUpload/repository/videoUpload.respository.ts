@@ -71,7 +71,7 @@ export class VideoUploadRepository {
         })
         .skip(skip)
         .limit(take)
-        .sort({ _id: -1 });
+        .sort({ created_at: -1 });
       return response;
     } catch (error) {
       throw error;
