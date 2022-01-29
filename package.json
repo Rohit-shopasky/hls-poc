@@ -18,7 +18,13 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "start:pm": "pm2 start ecosystem.config.js",
+    "start:pm:staging": "pm2 start ecosystem.config.js --env staging",
+    "start:pm:production": "pm2 start ecosystem.config.js --env production",
+    "worker:start:pm": "pm2 start videoWorkerEcosystem.config.js",
+    "worker:start:pm:staging": "pm2 start videoWorkerEcosystem.config.js --env staging",
+    "worker:start:pm:production": "pm2 start videoWorkerEcosystem.config.js --env production"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
